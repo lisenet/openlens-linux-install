@@ -46,6 +46,7 @@ function build_openlens()
   printf "%s\\n" "INFO: using directory ${TMP_DIR}"
   cd "${TMP_DIR}"
   if [ -z "${1}" ]; then
+    # Build for the latest version of OpenLens Buiunless a specific version provided
     printf "%s\\n%s\\n%s\\n" "INFO: version of OpenLens has not been provided" "INFO: you can provide OpenLens version to the script, e.g." "${0} 6.0.0"
     printf "%s\\n" "INFO: checking GitHub API for the latest OpenLens tag"
     OPENLENS_VERSION=$(curl -sS "${OPENLENS_API_URL}" | sed -En 's/  "tag_name": "(.+)",/\1/p')
